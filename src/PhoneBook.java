@@ -41,8 +41,6 @@ public class PhoneBook {
         }
     }
 
-
-
     public void exportContactsToCsv() throws IOException {
         exportFile.exportToCSV(contacts, this.file);
     }

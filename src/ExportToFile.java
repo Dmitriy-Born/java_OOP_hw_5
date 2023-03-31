@@ -26,7 +26,7 @@ public class ExportToFile implements Export{
             xmlStreamWriter.writeCharacters(contact.getLastName());
             xmlStreamWriter.writeEndElement();
             xmlStreamWriter.writeStartElement("phoneNumber");
-            xmlStreamWriter.writeCharacters(contact.getNumber());
+            xmlStreamWriter.writeCharacters(contact.getNumber().toString());
             xmlStreamWriter.writeEndElement();
             xmlStreamWriter.writeEndElement();
         }

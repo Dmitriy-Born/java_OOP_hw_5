@@ -42,9 +42,9 @@ public class ImportToFile implements Import{
                             case "lastName":
                                 contact.setLastName(data);
                                 break;
-                            case "phoneNumber":
-                                contact.setNumber(data);
-                                break;
+//                            case "phoneNumber":
+//                                contact.setNumber(data);
+//                                break;
                         }
                     }
                     break;
@@ -71,7 +71,7 @@ public class ImportToFile implements Import{
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length >= 3) {
-                    Contact contact = new Contact(parts[0], parts[1], parts[2]);
+                    Contact contact = new Contact(parts[0], parts[1], new HashSet<>());
                     uniqueContacts.add(contact);
                 }
             }

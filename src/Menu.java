@@ -1,6 +1,7 @@
 import javax.management.modelmbean.XMLParseException;
 import javax.xml.stream.XMLStreamException;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
 
 public class Menu {
@@ -63,11 +64,35 @@ public class Menu {
     }
 
     private void addNewContact(){
+        HashSet<String> num = new HashSet<>();
         System.out.println("Добавление контакта");
         String firstName = KeyScanner.getText("Введите имя: ");
         String lastName = KeyScanner.getText("Введите фамилию: ");
-        String number = KeyScanner.getText("Введите номер телефона: ");
-        Contact c = new Contact(firstName, lastName, number);
+
+        System.out.println("Какое количество телефонов будет у абонента? (до 3х)");
+
+        switch (KeyScanner.getText()){
+            case("1") -> {
+                String number1 = KeyScanner.getText("Введите номер телефона: ");
+                num.add(number1);
+            }
+            case ("2") -> {
+                String number1 = KeyScanner.getText("Введите первый номер телефона: ");
+                String number2 = KeyScanner.getText("Введите второй номер телефона: ");
+                num.add(number1);
+                num.add(number2);
+            }
+            case ("3") -> {
+                String number1 = KeyScanner.getText("Введите первый номер телефона: ");
+                String number2 = KeyScanner.getText("Введите второй номер телефона: ");
+                String number3 = KeyScanner.getText("Введите третий номер телефона: ");
+                num.add(number1);
+                num.add(number2);
+                num.add(number3);
+            }
+        }
+
+        Contact c = new Contact(firstName, lastName, num);
         phoneBook.addContact(c);
     }
 
